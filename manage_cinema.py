@@ -36,9 +36,10 @@ class Cinema:
             row: la fila de la butaca
             seat: el numero de la butaca
         """
-        print(self.__seating[row][seat])
-        if self.__seating[row][seat] is None:
-            self.__seating[row][seat] = "occupied"
+        
+        if self.__seating[row].get(seat) is None:
+            self.__seating[row].update({seat:"occupied"})
+        
 
     def count_free_seats(self,rows_seats,total):
         """
@@ -60,7 +61,9 @@ print("------------- Error 1 -----------------")
 cinema.create_cinema_seating()
 cinema.book_seat(2,4)
 cinema.print_seating()
-
+"""He modificado el error cambiando la forma de asignar el asiento, es decir
+    ahora se actualiza en la fila correspondiente el asiento que tiene esa clave.
+"""
 #ERROR 2: le paso la lista de "seats" donde deberÃ­a haber 2 libres y me dice que hay 0.
 print("\n------------- Error 2 -----------------")
 seats = [(2,4), (3,1), (5,2)]
