@@ -4,4 +4,8 @@ class Libro:
         self.__titulo = titulo
         self.__anyo = anyo
     
-        
+    def get_anyo(self):
+        return self.__anyo
+
+    def get_titulo(self):
+        return self.__titulo       
