@@ -5,6 +5,7 @@ def get_list(doc):
     f = open(doc, mode="rt", encoding="utf-8")
     lista_lineas = f.readlines()
     lista_palabras = split_lineas(lista_lineas)
+    #print(lista_palabras)
     dic_palabras = {}
     if len(lista_palabras) == 0:
         raise ValueError("El fichero no tiene ninguna linea")
@@ -38,18 +39,16 @@ def split_lineas(lineas):
 
 def mas_antiguos( lista_libros, anyo):
     lista_titulos = []
-    pos = 0
     if anyo < 1900:
         raise ValueError("El año ha de ser mayor a 1900")
     elif anyo > 2021:
         raise ValueError("El año ha de ser menor que 2021")
 
     else:
-        for i in lista_libros:
-            if i[pos].get_anyo() == anyo or i[pos].get_anyo-1:
-                lista_titulos.append(i[pos].get_titulo)
-            pos = pos +1
-            return lista_libros
+        for i in range(len(lista_libros)):
+            if (lista_libros[i].get_anyo() == anyo) or (lista_libros[i].get_anyo()+1 ==anyo):
+                lista_titulos.append(lista_libros[i].get_titulo())
+        return lista_titulos
 
 
 
